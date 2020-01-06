@@ -91,20 +91,63 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 68));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var _default =
 {
-  onLaunch: function onLaunch() {
-    console.log('App Launch');
-    wx.cloud.init({
-      env: 'yuzhenliu-dev-r3cgh' });
+  methods: {
+    // 处理是否登录
+    // 从本地获取 isLogin,判断是否登录
+    // 如果 isLogin 为 true,则不做什么
+    // 如果 isLogin 为 false, 则调用云函数，登录
+    handleLogin: function handleLogin() {
+      try {
+        var isLogin = uni.getStorageSync('isLogin');
 
-  },
+        if (isLogin) {
+          console.log('已经登录', isLogin);
+        } else {
+          wx.cloud.callFunction({
+            name: 'get-login' }).
+
+          then(function (res) {
+            if (res.errMsg.endsWith('ok')) {
+              uni.setStorage({
+                key: 'isLogin',
+                data: true,
+                success: function success() {
+                  console.log('保存用户登录态成功');
+                },
+                fail: function fail() {
+                  console.log('保存用户登录态失败');
+                } });
+
+            }
+          }).
+          catch(function (err) {
+            console.log(err);
+            console.log('调用云函数出错');
+          });
+        }
+
+      } catch (e) {
+        console.log('获取isLogin出错');
+        console.log(e);
+      }
+    } },
+
+  onLaunch: function () {var _onLaunch = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+              console.log('App Launch');_context.next = 3;return (
+                wx.cloud.init({
+                  env: 'yuzhenliu-dev-r3cgh' }));case 3:
+
+              this.handleLogin();case 4:case "end":return _context.stop();}}}, _callee, this);}));function onLaunch() {return _onLaunch.apply(this, arguments);}return onLaunch;}(),
+
   onShow: function onShow() {
     console.log('App Show');
   },
   onHide: function onHide() {
     console.log('App Hide');
   } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 12 */
