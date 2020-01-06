@@ -1,0 +1,1 @@
+<view class="order-item data-v-3b2c3695"><view class="order-left data-v-3b2c3695"><text class="{{['data-v-3b2c3695',(true)?'title':'',(isTitleWeight)?'titleWeight':'']}}">{{title}}</text><text class="desc data-v-3b2c3695">{{desc}}</text></view><view class="order-right data-v-3b2c3695"><slot></slot></view></view>

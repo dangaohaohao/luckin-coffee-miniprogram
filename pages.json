@@ -1,0 +1,80 @@
+{
+	"pages": [
+		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+			"path": "pages/menu/menu",
+			"style": {
+				"navigationBarTitleText": "选择咖啡和小食"
+			}
+		},
+		{
+			"path": "pages/order/order",
+			"style": {
+				"navigationBarTitleText": "订单列表"
+			}
+		},
+		{
+			"path": "pages/cart/cart",
+			"style": {
+				"navigationBarTitleText": "购物车"
+			}
+		},
+		{
+			"path": "pages/mine/mine",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		}
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "luckin-coffee",
+		"navigationBarBackgroundColor": "#FFF",
+		"backgroundTextStyle": "dark",
+		"backgroundColor": "#F8F8F8",
+		"enablePullDownRefresh": true
+	},
+	"tabBar": {
+		"color": "#2B4C7E",
+		"selectedColor": "#2B4C7E",
+		"borderStyle": "black",
+		"backgroundColor": "F8F8F8",
+		"list": [
+			{
+				"pagePath": "pages/home/home",
+				"iconPath": "static/home.png",
+				"selectedIconPath": "static/home-select.png",
+				"text": "首页"
+			}, 
+			{
+				"pagePath": "pages/menu/menu",
+				"iconPath": "static/menu.png",
+				"selectedIconPath": "static/menu-select.png",
+				"text": "菜单"
+			},
+			{
+				"pagePath": "pages/order/order",
+				"iconPath": "static/order.png",
+				"selectedIconPath": "static/order-select.png",
+				"text": "订单"
+			}, 
+			{
+				"pagePath": "pages/cart/cart",
+				"iconPath": "static/cart.png",
+				"selectedIconPath": "static/cart-select.png",
+				"text": "购物车"
+			},
+			{
+				"pagePath": "pages/mine/mine",
+				"iconPath": "static/mine.png",
+				"selectedIconPath": "static/mine-select.png",
+				"text": "我的"
+			}
+		]
+	}
+}
